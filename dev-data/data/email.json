@@ -1,0 +1,1 @@
+[{"email":"yasser@gmail.com","subject":"your password reset token (valid for 10 min)","message":"Forgot your password? Submit a PATCH request with your new password and passwordConfirm to: http://127.0.0.1:3000/api/v1/users/resetPassword/6421ea6a0b77d3a4d671c4628fdd8aada077e70ea5c0f4767b7e7e58586b9387.\nIf you didn't forgot your password ignore this email"}]

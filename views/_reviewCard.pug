@@ -1,0 +1,16 @@
+mixin reviewCard(review, deleteEdit)
+    .reviews__card
+        .reviews__avatar
+            img.reviews__avatar-img(src=`/img/users/${review.user.photo}`, alt=`${review.user.name}`)
+            h6.reviews__user= review.user.name
+        p.reviews__text= review.review
+        .reviews__rating
+            each star in [1, 2, 3, 4, 5]
+                svg.reviews__star(class=`reviews__star--${review.rating >= star ? 'active' : 'inactive'}`)
+                    use(xlink:href='/img/icons.svg#icon-star')
+        if deleteEdit 
+            form.form.card__footer.form--deleteReview
+                //- TODO still have to fix this pug -- can't delete second element in list of reviews
+                input#reviewId.form__input(type='hidden', value=`${review._id}`)
+                a.btn.btn--gray.btn--small(href=`/my-reviews/${review.id}`) Edit
+                button.btn.btn--red.btn--small Delete

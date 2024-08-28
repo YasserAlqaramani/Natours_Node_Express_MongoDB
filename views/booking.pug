@@ -1,0 +1,35 @@
+extends base
+
+block content
+    main.main
+        .login-form
+            .card__header 
+                .card__picture 
+                    .card__picture-overlay &nbsp;
+                    img.card__picture-img(src=`/img/tours/${tour.imageCover}`, alt=`${tour.name}`)
+                h3.heading-tertirary
+                    span= tour.name
+            h2.heading-secondary.ma-bt-lg= `($${tour.price})`
+            p.card__text= tour.summary
+            hr
+            br
+            form.form.form--booking
+                .form__group
+                    label.form__label(for='email') Email address
+                    input#email.form__input(type='email', placeholder='you@example.com', value=`${user.email}`, readOnly, required)
+                    input#tourId.form__input(type='hidden', value=`${tour._id}`)
+                    input#price.form__input(type='hidden', value=`${tour.price}`)
+                    input#slug.form__input(type='hidden', value=`${tour.slug}`)
+                .form__group
+                    label.form__label(for='card_information') Card Information
+                    input#card_information.form__input(type='text', placeholder='1234 1234 1234 1234\t\t\t\t\t\tvisa', required)
+                    input#month.form__input(type='text', placeholder='MM/YY', required)
+                    input#cvc.form__input(type='text', placeholder='CVC', required)
+                .form__group
+                    label.form__label(for='name') Name on Card
+                    input#name.form__input(type='text', required)
+                .form__group
+                    label.form__label(for='country') Country or Region
+                    input#country.form__input(type='text', required)
+                .form__group
+                    button.btn.btn--green Booking

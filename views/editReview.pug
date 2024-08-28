@@ -1,0 +1,16 @@
+extends base
+
+block content
+    main.main
+        .login-form
+            h2.heading-secondary.ma-bt-lg Edit Your Review
+            form.form.form--review
+                .form__group
+                    label.form__label(for='review') Review
+                    input#review.form__input(type='text', value=`${review.review}`, required)
+                    input#reviewId.form__input(type='hidden', value=`${review._id}`)
+                .form__group.ma-bt-md
+                    label.form__label(for='stars') Stars
+                    input#stars.form__input(type='number', value=`${review.rating}` required, max=5, min=0)
+                .form__group
+                    button.btn.btn--gray Edit
